@@ -33,29 +33,28 @@ public class Student_Controller {
                     status = false;
                     break;
                 default:
-                    System.out.println("Invalid option, please try again.");
-                    break;
+                    view.invalid_menu();
             }
         } while (status);
     }
-    
 
     public void add_student() {
         String student_id = view.get_studentnumber();
         String student_firstname = view.get_firstname();
         String student_lastname = view.get_lastname();
 
-        model.addStudent(student_id, student_firstname, student_lastname);
+        model.add_student(student_id, student_firstname, student_lastname);
     }
 
     public void delete_student() {
         String student_id = view.delete_student();
 
-        model.deleteStudent(student_id);
+        model.delete_student(student_id);
     }
 
     public void view_student() {
-        List<String> students = model.viewStudent();
+        List<String> students = model.view_student();
+
         view.view_student(students);
     }
 }

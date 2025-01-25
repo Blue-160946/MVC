@@ -23,8 +23,7 @@ public class Student_Model {
             // สร้างการเชื่อมต่อกับฐานข้อมูล
             connection = DriverManager.getConnection(url, username, password);
 
-            // ตรวจสอบการเชื่อมต่อ
-            System.out.println("Connection to database established successfully!");
+            //System.out.println("Connection to database established successfully!");
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
         } catch (ClassNotFoundException e) {
@@ -32,7 +31,7 @@ public class Student_Model {
         }
     }
 
-    public void addStudent(String studentId, String firstName, String lastName) {
+    public void add_student(String studentId, String firstName, String lastName) {
         try {
             String sql = "INSERT INTO student (student_id, first_name, last_name) VALUES (?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -43,15 +42,17 @@ public class Student_Model {
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Student added successfully!");
+                System.out.println("");
             } else {
                 System.out.println("Failed to add student.");
+                System.out.println("");
             }
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
         }
     }
 
-    public void deleteStudent(String studentId) {
+    public void delete_student(String studentId) {
         try {
             String sql = "DELETE FROM student WHERE student_id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -60,15 +61,17 @@ public class Student_Model {
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Student delete successfully!");
+                System.out.println("");
             } else {
                 System.out.println("Failed to delete student.");
+                System.out.println("");
             }
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
         }
     }
 
-    public List<String> viewStudent() {
+    public List<String> view_student() {
         List<String> students = new ArrayList<>();
         try {
             String sql = "SELECT * FROM student";

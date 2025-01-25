@@ -8,8 +8,8 @@ public class Student_View {
 
     public void display() {
         System.out.println("""
-            
             Registration_system
+
             1.Add Student
             2.Delete Student
             3.view Student
@@ -20,6 +20,11 @@ public class Student_View {
     public String input_menu(){
         System.out.print("Enter Menu (1-4): ");
         return scanner.nextLine();
+    }
+
+    public void invalid_menu(){
+        System.out.println("Invalid option, please try again.");
+        System.out.println("");
     }
 
     public String get_studentnumber() {
@@ -38,12 +43,13 @@ public class Student_View {
     }
 
     public String delete_student() {
-        System.out.println("Delete");
+        System.out.println("Delete Student");
         System.out.print("Enter Student ID : ");
         return scanner.nextLine();
     }
 
     public void view_student(List<String> students) {
+        System.out.println("View Student");
         for (int i = 0; i < students.size(); i++) {
             System.out.println(students.get(i));
         }

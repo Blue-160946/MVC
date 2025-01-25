@@ -9,7 +9,6 @@ public class Main {
         Student_View view = new Student_View();
         Student_Controller controller = new Student_Controller(model, view);
 
-        
         controller.run();
     }
 }
